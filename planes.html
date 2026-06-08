@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planes — Santa Marta Local</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --gold: #2A9D8F;
+  --gold-light: #45B7A8;
+  --dark: #0F0C08;
+  --dark2: #181309;
+  --card-bg: #1C1508;
+  --card-border: #2E2010;
+  --text: #F0E8D8;
+  --muted: #7A6A4A;
+  --muted2: #9A8A6A;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--dark);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+}
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 100vh;
+}
+.header {
+  padding: 22px 20px 14px;
+  border-bottom: 1px solid rgba(201,152,58,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-left { display: flex; align-items: center; gap: 14px; }
+.back-btn {
+  width: 38px; height: 38px;
+  border: 1px solid var(--card-border);
+  border-radius: 50%;
+  background: var(--card-bg);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+.back-btn:hover { border-color: var(--gold); }
+.logo h1 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: var(--gold); letter-spacing: -0.5px; }
+.logo p { font-size: 8px; color: var(--muted); letter-spacing: 3px; text-transform: uppercase; margin-top: 2px; font-family: 'Syne', sans-serif; }
+.hero {
+  text-align: center;
+  padding: 36px 20px 20px;
+}
+.hero h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--gold);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+.hero p {
+  font-size: 13px;
+  color: var(--muted2);
+  line-height: 1.6;
+  max-width: 360px;
+  margin: 0 auto;
+}
+.plans {
+  padding: 8px 16px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.plan-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.plan-card:hover { border-color: rgba(42,157,143,0.35); }
+.plan-card.popular {
+  border-color: var(--gold);
+  box-shadow: 0 0 20px rgba(42,157,143,0.12);
+}
+.plan-card.popular .plan-header { background: var(--gold); color: var(--dark); }
+.plan-card.popular .plan-header .plan-sub { color: rgba(0,0,0,0.6); }
+.plan-header {
+  padding: 18px 20px;
+  background: rgba(255,255,255,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.plan-name { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; }
+.plan-sub { font-size: 10px; color: var(--muted); font-family: 'Syne', sans-serif; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+.plan-price { text-align: right; }
+.plan-price .amount { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--gold); line-height: 1; }
+.plan-card.popular .plan-price .amount { color: var(--dark); }
+.plan-price .period { font-size: 10px; color: var(--muted); font-family: 'Syne', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+.plan-card.popular .plan-price .period { color: rgba(0,0,0,0.5); }
+.plan-body { padding: 16px 20px 20px; }
+.plan-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.plan-features li {
+  font-size: 13px;
+  color: var(--muted2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1.4;
+}
+.plan-features li i { width: 18px; text-align: center; font-size: 13px; flex-shrink: 0; }
+.plan-features li .check { color: #4CAF50; }
+.plan-features li .cross { color: #666; }
+.plan-features li .check-gold { color: var(--gold); }
+.plan-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.plan-btn:hover { transform: scale(1.02); }
+.plan-btn:active { transform: scale(0.98); }
+.plan-btn.gold { background: var(--gold); color: var(--dark); }
+.plan-btn.gold:hover { background: var(--gold-light); }
+.plan-btn.dark { background: rgba(255,255,255,0.08); color: var(--text); border: 1px solid var(--card-border); }
+.plan-btn.dark:hover { background: rgba(255,255,255,0.12); }
+.badge-popular {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark);
+  font-size: 9px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 6px;
+  margin-left: 10px;
+}
+.footer-nav {
+  padding: 0 16px 24px;
+  display: flex;
+  gap: 10px;
+}
+.footer-nav a {
+  flex: 1;
+  padding: 13px 16px;
+  border-radius: 14px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  transition: transform 0.2s;
+}
+.footer-nav a:hover { transform: translateY(-2px); }
+.footer-nav .btn-back {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text);
+  flex: 0.4;
+}
+.footer-nav .btn-back:hover { border-color: var(--gold); }
+.toast {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--dark);
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 100;
+}
+.toast.show { opacity: 1; }
+@media (max-width: 380px) {
+  .plan-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .plan-price { text-align: left; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="header">
+    <div class="header-left">
+      <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
+      <div class="logo">
+        <h1>Santa Marta Local</h1>
+        <p>Planes y precios</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div style="display:inline-block;background:rgba(255,255,255,0.06);border:1px solid var(--card-border);border-radius:8px;padding:4px 12px;font-size:10px;color:var(--muted);font-family:'Syne',sans-serif;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Página de registro</div>
+    <h2>Haz parte de<br>Santa Marta Local</h2>
+    <p>Elige el plan que más se ajuste a tu negocio. El primer mes es gratis en presencia básica.</p>
+  </div>
+
+  <div class="plans" id="plans">
+    <div class="plan-card" data-plan="Presencia Basica" data-precio="30000">
+      <div class="plan-header">
+        <div>
+          <div class="plan-name">Presencia Básica</div>
+          <div class="plan-sub">Entrada en el listado</div>
+        </div>
+        <div class="plan-price">
+          <div class="amount">$30.000</div>
+          <div class="period">/ mes</div>
+        </div>
+      </div>
+      <div class="plan-body">
+        <ul class="plan-features">
+          <li><i class="fa-solid fa-check check"></i> Perfil con foto, horario y descripción</li>
+          <li><i class="fa-solid fa-check check"></i> Enlace a Instagram</li>
+          <li><i class="fa-solid fa-check check"></i> Ubicación en el mapa</li>
+          <li><i class="fa-solid fa-check check"></i> Categoría y etiquetas</li>
+          <li><i class="fa-solid fa-check check"></i> 1<sup>er</sup> mes GRATIS</li>
+          <li><i class="fa-solid fa-xmark cross"></i> Sin borde destacado</li>
+          <li><i class="fa-solid fa-xmark cross"></i> Sin prioridad en resultados</li>
+        </ul>
+        <button class="plan-btn dark comprar-btn" data-plan="Presencia Basica" data-precio="30000">
+          Elegir plan
+        </button>
+      </div>
+    </div>
+
+    <div class="plan-card" data-plan="Verificado" data-precio="60000">
+      <div class="plan-header">
+        <div>
+          <div class="plan-name">Verificado</div>
+          <div class="plan-sub">Destaca con confianza</div>
+        </div>
+        <div class="plan-price">
+          <div class="amount">$60.000</div>
+          <div class="period">/ mes</div>
+        </div>
+      </div>
+      <div class="plan-body">
+        <ul class="plan-features">
+          <li><i class="fa-solid fa-check check"></i> Todo lo de Básica</li>
+          <li><i class="fa-solid fa-check check-gold"></i> <strong>Check dorado</strong> de verificado</li>
+          <li><i class="fa-solid fa-check check-gold"></i> Borde dorado en tu tarjeta</li>
+          <li><i class="fa-solid fa-check check-gold"></i> Antes que los no verificados</li>
+        </ul>
+        <button class="plan-btn dark comprar-btn" data-plan="Verificado" data-precio="60000">
+          Elegir plan
+        </button>
+      </div>
+    </div>
+
+    <div class="plan-card popular" data-plan="Destacado" data-precio="80000">
+      <div class="plan-header">
+        <div>
+          <div class="plan-name">Destacado<span class="badge-popular">Popular</span></div>
+          <div class="plan-sub">Entre los primeros</div>
+        </div>
+        <div class="plan-price">
+          <div class="amount">$80.000</div>
+          <div class="period">/ mes</div>
+        </div>
+      </div>
+      <div class="plan-body">
+        <ul class="plan-features">
+          <li><i class="fa-solid fa-check check"></i> Todo lo de Verificado</li>
+          <li><i class="fa-solid fa-check check-gold"></i> <strong>Prioridad</strong> en resultados de búsqueda</li>
+          <li><i class="fa-solid fa-check check-gold"></i> Aparece antes que los demás</li>
+          <li><i class="fa-solid fa-check check-gold"></i> Más exposición para tu negocio</li>
+        </ul>
+        <button class="plan-btn gold comprar-btn" data-plan="Destacado" data-precio="80000">
+          Elegir plan
+        </button>
+      </div>
+    </div>
+
+    <div class="plan-card" data-plan="Completo" data-precio="100000">
+      <div class="plan-header">
+        <div>
+          <div class="plan-name">Completo</div>
+          <div class="plan-sub">La máxima exposición</div>
+        </div>
+        <div class="plan-price">
+          <div class="amount">$100.000</div>
+          <div class="period">/ mes</div>
+        </div>
+      </div>
+      <div class="plan-body">
+        <ul class="plan-features">
+          <li><i class="fa-solid fa-check check"></i> Todo lo de Destacado</li>
+          <li><i class="fa-solid fa-check check-gold"></i> <strong>Prioridad máxima</strong> en resultados</li>
+          <li><i class="fa-solid fa-check check-gold"></i> Aparece primero en tu categoría</li>
+          <li><i class="fa-solid fa-check check-gold"></i> Lo máximo en exposición</li>
+        </ul>
+        <button class="plan-btn dark comprar-btn" data-plan="Completo" data-precio="100000">
+          Elegir plan
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-nav">
+    <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+document.querySelectorAll('.comprar-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const plan = this.dataset.plan;
+    const toast = document.getElementById('toast');
+    toast.textContent = `Has elegido ${plan}. Pronto podrás pagar aquí.`;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  });
+});
+</script>
+</body>
+</html>
