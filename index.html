@@ -10,7 +10,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Santa Marta Local — El Parche</title>
+<title>Santa Marta Local - El Parche</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -18,18 +18,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
 :root {
-  --gold: #2A9D8F;
-  --gold-light: #45B7A8;
-  --coral: #E76F51;
-  --dark: #0F0C08;
-  --dark2: #181309;
-  --card-bg: #1C1508;
-  --card-border: #2E2010;
-  --text: #F0E8D8;
-  --muted: #7A6A4A;
-  --muted2: #9A8A6A;
-  --tag-bg: #241A08;
-  --nav-bg: #0F0C08;
+  --gold: #1ABC9C;
+  --gold-light: #5DECD8;
+  --coral: #148F77;
+  --dark: #080E0E;
+  --dark2: #0C1614;
+  --card-bg: #121E1C;
+  --card-border: #1A302C;
+  --text: #EAEAEA;
+  --muted: #4A7A6A;
+  --muted2: #6A9A8A;
+  --tag-bg: #162624;
+  --nav-bg: #080E0E;
   --radius: 18px;
   --radius-sm: 10px;
   --whatsapp: #25D366;
@@ -46,15 +46,7 @@ body {
   flex-direction: column;
   align-items: center;
 }
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.5;
-}
+body::before { display: none; }
 .app {
   width: 100%;
   max-width: 480px;
@@ -71,7 +63,7 @@ body::before {
   z-index: 200;
   background: rgba(15,12,8,0.93);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(42,157,143,0.08);
+  border-bottom: 1px solid rgba(26,188,156,0.15);
 }
 .header-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
 .logo h1 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--gold); letter-spacing: -0.5px; line-height: 1; }
@@ -102,8 +94,8 @@ body::before {
 /* ── BANNER ── */
 .banner {
   margin: 16px 16px 0;
-  background: linear-gradient(135deg, #0A2825, #081C1A);
-  border: 1px solid #1A3D38; border-radius: var(--radius);
+  background: linear-gradient(135deg, #081A14, #040F0C);
+  border: 1px solid #103028; border-radius: var(--radius);
   overflow: hidden; transition: border-color 0.2s;
 }
 .banner:hover { border-color: var(--gold); }
@@ -116,11 +108,11 @@ body::before {
 .banner.open .banner-arrow { transform: rotate(90deg); }
 .banner-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
 .banner.open .banner-body { max-height: 600px; }
-.banner-event-item { display: flex; align-items: center; gap: 14px; padding: 13px 16px; border-top: 1px solid rgba(42,157,143,0.08); }
+.banner-event-item { display: flex; align-items: center; gap: 14px; padding: 13px 16px; border-top: 1px solid rgba(201,152,58,0.08); }
 .bev-icon { font-size: 22px; background: rgba(255,255,255,0.04); padding: 8px; border-radius: 10px; flex-shrink: 0; }
 .bev-info h5 { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
 .bev-info p { font-size: 11px; color: var(--muted2); }
-.banner-cta { padding: 14px 16px; border-top: 1px solid rgba(42,157,143,0.1); }
+.banner-cta { padding: 14px 16px; border-top: 1px solid rgba(201,152,58,0.1); }
 .btn-ver-eventos {
   width: 100%; background: var(--gold); color: var(--dark); border: none;
   border-radius: 12px; padding: 12px; font-size: 14px; font-weight: 700;
@@ -142,9 +134,9 @@ body::before {
   opacity: 0; transform: translateY(16px); animation: cardIn 0.45s ease forwards;
 }
 @keyframes cardIn { to { opacity: 1; transform: translateY(0); } }
-.place-card:hover { border-color: rgba(42,157,143,0.4); }
-.place-card.verified { border: 1.5px solid var(--gold); box-shadow: 0 0 16px rgba(42,157,143,0.15); }
-.place-card.verified:hover { border-color: var(--gold-light); box-shadow: 0 0 20px rgba(42,157,143,0.3); }
+.place-card:hover { border-color: rgba(201,152,58,0.4); }
+.place-card.verified { border: 1.5px solid var(--gold); box-shadow: 0 0 16px rgba(201,152,58,0.15); }
+.place-card.verified:hover { border-color: var(--gold-light); box-shadow: 0 0 20px rgba(201,152,58,0.3); }
 
 .place-thumb {
   width: 100%;
@@ -176,11 +168,11 @@ body::before {
   background: linear-gradient(transparent 60%, rgba(15,12,8,0.85));
   pointer-events: none;
 }
-.pt1 { background: radial-gradient(ellipse at 30% 60%, #0A2825 0%, #041210 100%); }
+.pt1 { background: radial-gradient(ellipse at 30% 60%, #3D1A05 0%, #130800 100%); }
 .pt2 { background: radial-gradient(ellipse at 30% 60%, #051828 0%, #020A10 100%); }
 .pt3 { background: radial-gradient(ellipse at 30% 60%, #0A2810 0%, #030E05 100%); }
 .pt4 { background: radial-gradient(ellipse at 30% 60%, #1A0528 0%, #0A0215 100%); }
-.pt5 { background: radial-gradient(ellipse at 30% 60%, #0A2A20 0%, #030E0A 100%); }
+.pt5 { background: radial-gradient(ellipse at 30% 60%, #1A1505 0%, #0A0800 100%); }
 .pt6 { background: radial-gradient(ellipse at 30% 60%, #001A20 0%, #00080F 100%); }
 .pt7 { background: radial-gradient(ellipse at 30% 60%, #201A00 0%, #0A0800 100%); }
 .pt8 { background: radial-gradient(ellipse at 30% 60%, #200A0A 0%, #0A0303 100%); }
@@ -189,7 +181,7 @@ body::before {
 
 .place-rating-badge {
   position: absolute; top: 12px; left: 12px;
-  background: rgba(0,0,0,0.75); border: 1px solid rgba(42,157,143,0.4);
+  background: rgba(0,0,0,0.75); border: 1px solid rgba(201,152,58,0.4);
   border-radius: 8px; padding: 4px 10px; font-size: 12px; color: var(--gold);
   display: flex; align-items: center; gap: 4px; font-weight: 600; font-family: 'Syne', sans-serif;
 }
@@ -219,9 +211,9 @@ body::before {
   border-radius: var(--radius); overflow: hidden; transition: border-color 0.2s;
   opacity: 0; animation: cardIn 0.45s ease forwards;
 }
-.ev-card-full:hover { border-color: rgba(42,157,143,0.3); }
+.ev-card-full:hover { border-color: rgba(201,152,58,0.3); }
 .ev-thumb-full { width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; font-size: 64px; position: relative; }
-.et1 { background: radial-gradient(ellipse at center, #0A2825 0%, #041210 100%); }
+.et1 { background: radial-gradient(ellipse at center, #4A1A05 0%, #1A0800 100%); }
 .et2 { background: radial-gradient(ellipse at center, #0A2810 0%, #040E06 100%); }
 .et3 { background: radial-gradient(ellipse at center, #200A40 0%, #0A0318 100%); }
 .et4 { background: radial-gradient(ellipse at center, #2A1A00 0%, #0F0800 100%); }
@@ -257,7 +249,7 @@ body::before {
 
 /* ══════════════════════════════════
    MODAL — todo en una pantalla
-═══════════════════════════════════ */
+══════════════════════════════════ */
 .overlay {
   position: fixed; inset: 0;
   background: rgba(0,0,0,0.9);
@@ -283,6 +275,7 @@ body::before {
 }
 .overlay.open .modal-sheet { transform: translateY(0); }
 
+/* Hero compacto con imagen de Cartagena */
 .modal-hero {
   width: calc(100% - 32px);
   margin: 14px 16px 0;
@@ -334,8 +327,9 @@ body::before {
   cursor: pointer; font-size: 14px; color: var(--text);
   transition: background 0.2s; z-index: 3;
 }
-.modal-close:hover { background: rgba(42,157,143,0.35); }
+.modal-close:hover { background: rgba(201,152,58,0.35); }
 
+/* Scroll solo en el body del modal */
 .modal-body {
   flex: 1;
   overflow-y: auto;
@@ -377,6 +371,7 @@ body::before {
   font-size: 13px; color: var(--muted2); line-height: 1.6;
   margin-bottom: 10px;
 }
+
 
 .modal-rating-row {
   display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
@@ -475,7 +470,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="header-top">
       <div class="logo">
         <h1>Santa Marta Local</h1>
-        <p>La Costa con otro flow</p>
+        <p>Lo que hacen los de aquí</p>
       </div>
     </div>
     <div class="search-box">
@@ -518,7 +513,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="screen" id="screen-eventos">
     <div class="events-screen-header">
       <h2>Agenda</h2>
-      <p>Próximos eventos en Santa Marta</p>
+      <p>Próximos eventos en Cartagena</p>
     </div>
       <div class="events-feed" id="events-feed"></div>
   </div>
@@ -546,7 +541,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- BOTON REGISTRO -->
 <div class="wa-float">
-  <a class="wa-btn" href="planes.html" style="text-decoration:none;">
+  <a class="wa-btn" href="https://cartagenalocal.github.io/elparche-admin/admintaller/" style="text-decoration:none;">
     <span class="wa-btn-icon">📋</span>
     <span class="wa-btn-text">Registra tu local</span>
   </a>
@@ -587,42 +582,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 // SVG ICONS
 // ══════════════════════════════════════
 const svgIcons = {
-  bares: `<circle cx="40" cy="28" r="18" stroke="#2A9D8F" stroke-width="2.5" fill="none"/>
-    <path d="M28 28 Q28 52 40 52 Q52 52 52 28" stroke="#2A9D8F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <path d="M52 20 L58 16 L58 32 L52 28" stroke="#2A9D8F" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
-    <path d="M34 52 L46 52" stroke="#2A9D8F" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M37 56 L43 56" stroke="#2A9D8F" stroke-width="2" stroke-linecap="round"/>`,
+  bares: `<circle cx="40" cy="28" r="18" stroke="#1ABC9C" stroke-width="2.5" fill="none"/>
+    <path d="M28 28 Q28 52 40 52 Q52 52 52 28" stroke="#1ABC9C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M52 20 L58 16 L58 32 L52 28" stroke="#1ABC9C" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+    <path d="M34 52 L46 52" stroke="#1ABC9C" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M37 56 L43 56" stroke="#1ABC9C" stroke-width="2" stroke-linecap="round"/>`,
 
-  cafe: `<path d="M24 30 Q24 54 40 54 Q56 54 56 30" stroke="#2A9D8F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <path d="M24 30 L56 30" stroke="#2A9D8F" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M56 34 Q64 34 64 42 Q64 50 56 50" stroke="#2A9D8F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <path d="M32 54 L48 54" stroke="#2A9D8F" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M36 22 Q36 16 40 18 Q44 20 44 14" stroke="#2A9D8F" stroke-width="2" fill="none" stroke-linecap="round"/>`,
+  cafe: `<path d="M24 30 Q24 54 40 54 Q56 54 56 30" stroke="#1ABC9C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M24 30 L56 30" stroke="#1ABC9C" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M56 34 Q64 34 64 42 Q64 50 56 50" stroke="#1ABC9C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M32 54 L48 54" stroke="#1ABC9C" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M36 22 Q36 16 40 18 Q44 20 44 14" stroke="#1ABC9C" stroke-width="2" fill="none" stroke-linecap="round"/>`,
 
-  comida: `<path d="M28 18 L28 40" stroke="#2A9D8F" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M28 18 Q20 26 20 32 Q20 40 28 40" stroke="#2A9D8F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <path d="M28 40 L28 62" stroke="#2A9D8F" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M50 18 L50 28 Q50 36 42 36 Q50 36 50 44 L50 62" stroke="#2A9D8F" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`,
+  comida: `<path d="M28 18 L28 40" stroke="#1ABC9C" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M28 18 Q20 26 20 32 Q20 40 28 40" stroke="#1ABC9C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M28 40 L28 62" stroke="#1ABC9C" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M50 18 L50 28 Q50 36 42 36 Q50 36 50 44 L50 62" stroke="#1ABC9C" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`,
 
-  plan: `<circle cx="40" cy="40" r="22" stroke="#2A9D8F" stroke-width="2.5" fill="none"/>
-    <path d="M40 18 L40 24" stroke="#2A9D8F" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M40 56 L40 62" stroke="#2A9D8F" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M18 40 L24 40" stroke="#2A9D8F" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M56 40 L62 40" stroke="#2A9D8F" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M40 40 L50 30" stroke="#2A9D8F" stroke-width="2.5" stroke-linecap="round"/>
-    <circle cx="40" cy="40" r="3" fill="#2A9D8F"/>`,
+  plan: `<circle cx="40" cy="40" r="22" stroke="#1ABC9C" stroke-width="2.5" fill="none"/>
+    <path d="M40 18 L40 24" stroke="#1ABC9C" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M40 56 L40 62" stroke="#1ABC9C" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M18 40 L24 40" stroke="#1ABC9C" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M56 40 L62 40" stroke="#1ABC9C" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M40 40 L50 30" stroke="#1ABC9C" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="40" cy="40" r="3" fill="#1ABC9C"/>`,
 
-  arte: `<rect x="18" y="22" width="44" height="36" rx="4" stroke="#2A9D8F" stroke-width="2.5" fill="none"/>
-    <circle cx="30" cy="33" r="4" stroke="#2A9D8F" stroke-width="2" fill="none"/>
-    <path d="M18 46 L30 36 L40 44 L50 32 L62 46" stroke="#2A9D8F" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`,
+  arte: `<rect x="18" y="22" width="44" height="36" rx="4" stroke="#1ABC9C" stroke-width="2.5" fill="none"/>
+    <circle cx="30" cy="33" r="4" stroke="#1ABC9C" stroke-width="2" fill="none"/>
+    <path d="M18 46 L30 36 L40 44 L50 32 L62 46" stroke="#1ABC9C" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`,
 
-  noche: `<path d="M44 18 Q32 20 28 32 Q24 44 34 52 Q44 60 56 54 Q44 56 40 46 Q36 36 44 28 Q48 22 44 18Z" stroke="#2A9D8F" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="56" cy="28" r="2.5" fill="#2A9D8F"/>
-    <circle cx="62" cy="38" r="1.5" fill="#2A9D8F"/>
-    <circle cx="52" cy="20" r="1.5" fill="#2A9D8F"/>`,
+  noche: `<path d="M44 18 Q32 20 28 32 Q24 44 34 52 Q44 60 56 54 Q44 56 40 46 Q36 36 44 28 Q48 22 44 18Z" stroke="#1ABC9C" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="56" cy="28" r="2.5" fill="#1ABC9C"/>
+    <circle cx="62" cy="38" r="1.5" fill="#1ABC9C"/>
+    <circle cx="52" cy="20" r="1.5" fill="#1ABC9C"/>`,
 
-  default: `<circle cx="40" cy="40" r="22" stroke="#2A9D8F" stroke-width="2.5" fill="none"/>
-    <circle cx="40" cy="40" r="6" fill="#2A9D8F"/>`
+  default: `<circle cx="40" cy="40" r="22" stroke="#1ABC9C" stroke-width="2.5" fill="none"/>
+    <circle cx="40" cy="40" r="6" fill="#1ABC9C"/>`
 };
 
 function getSVG(cat) {
@@ -637,84 +632,57 @@ function getSVG(cat) {
 // DATOS
 // ══════════════════════════════════════
 const places = [
-  // ═══ BARES ═══
-  { id:1, orden:999, bg:'pt1', cat:'bares', name:'El Mono Rojo', barrio:'Centro Histórico', tags:['Bar','Rockola','Coctelería'], rating:4.5, horario:'Lun–Dom · 5pm–2am', precio:'$$ Promedio', desc:'Bar con rockola virtual y coctelería artesanal en el corazón del Centro Histórico.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2425,-74.2130] },
-  { id:2, orden:999, bg:'pt2', cat:'bares', name:'Crab\'s Bar', barrio:'Centro Histórico', tags:['Rock','Blues','Rooftop'], rating:4.4, horario:'Lun–Dom · 5pm–2am', precio:'$$ Promedio', desc:'Rock/Blues bar desde 1999 con rooftop y mesa de pool.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2428,-74.2123] },
-  { id:3, orden:999, bg:'pt3', cat:'bares', name:'Oh la la La Puerta', barrio:'Centro Histórico', tags:['Salsa','Champeta','Party'], rating:4.3, horario:'Lun–Dom · 5pm–2am', precio:'$$ Promedio', desc:'Bar con champeta, salsa y música caribeña.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2428,-74.2128] },
-  { id:4, orden:999, bg:'pt4', cat:'bares', name:'La Cocoteria', barrio:'Centro Histórico', tags:['Coco','Mojitos','Fresco'], rating:4.6, horario:'Lun–Dom · 5pm–2am', precio:'$$ Promedio', desc:'Especializado en coco-limonada y mojitos de coco.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2420,-74.2140] },
-  { id:5, orden:999, bg:'pt5', cat:'bares', name:'Charlie\'s Bar', barrio:'Centro Histórico', tags:['Terraza','En vivo','Coctelería'], rating:4.4, horario:'Lun–Dom · 5pm–2am', precio:'$$ Promedio', desc:'Bar pequeño con terraza y música en vivo.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2415,-74.2145] },
-  { id:6, orden:999, bg:'pt6', cat:'bares', name:'La Brisa Loca', barrio:'Parque de los Novios', tags:['Party','Música','Animado'], rating:4.2, horario:'Lun–Dom · 5pm–2am', precio:'$$ Promedio', desc:'Bar animado con música y ambiente party.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2430,-74.2125] },
-  { id:7, orden:999, bg:'pt7', cat:'bares', name:'MangoRock Bar', barrio:'Centro Histórico', tags:['Rock','Blues','Karaoke'], rating:4.3, horario:'Lun–Dom · 5pm–2am', precio:'$$ Promedio', desc:'Bar de blues/rock con karaoke los jueves.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2422,-74.2135] },
-
-  // ═══ CAFÉS ═══
-  { id:8, orden:999, bg:'pt8', cat:'cafe', name:'Vívolo Café', barrio:'Bellavista', tags:['Especialidad','Laboratorio','Catas'], rating:4.7, horario:'Lun–Dom · 8am–8pm', precio:'$$ Promedio', desc:'Café de especialidad con laboratorio multisensorial.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2413,-74.2156] },
-  { id:9, orden:999, bg:'pt1', cat:'cafe', name:'Agua de Río Café & Bistro', barrio:'Centro Histórico', tags:['Café','Bistro','Plantas'], rating:4.5, horario:'Lun–Dom · 8am–8pm', precio:'$$ Promedio', desc:'Cafetería estilosa con plantas y comida fresca.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2428,-74.2135] },
-  { id:10, orden:999, bg:'pt2', cat:'cafe', name:'Origen Arte Sano', barrio:'Centro Histórico', tags:['Saludable','Arte','Fusión'], rating:4.4, horario:'Lun–Dom · 8am–8pm', precio:'$$ Promedio', desc:'Café fusión con opciones saludables y arte local.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2430,-74.2130] },
-  { id:11, orden:999, bg:'pt3', cat:'cafe', name:'Aluna Cafe Sagrado', barrio:'Centro Histórico', tags:['Rústico','Cacao','Especialidad'], rating:4.6, horario:'Lun–Dom · 8am–8pm', precio:'$$ Promedio', desc:'Café rústico-boutique con café de especialidad y cacao.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2420,-74.2145] },
-  { id:12, orden:999, bg:'pt4', cat:'cafe', name:'Mientras', barrio:'Centro Histórico', tags:['Bar','Café','Muffins'], rating:4.3, horario:'Lun–Dom · 8am–8pm', precio:'$$ Promedio', desc:'Bar-café con muffins artesanales y ambiente acogedor.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2425,-74.2130] },
-  { id:13, orden:999, bg:'pt5', cat:'cafe', name:'La Canoa Café Cultural', barrio:'Centro Histórico', tags:['Cultural','Francés','Tartaletas'], rating:4.5, horario:'Lun–Dom · 8am–8pm', precio:'$$ Promedio', desc:'Café cultural con tartaletas de maracuyá.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2426,-74.2138] },
-
-  // ═══ COMIDA ═══
-  { id:14, orden:999, bg:'pt6', cat:'comida', name:'Lulo Café Bar', barrio:'Centro Histórico', tags:['Arepas','Ceviches','Latino'], rating:4.6, horario:'Lun–Dom · 12pm–10pm', precio:'$$ Promedio', desc:'Arepas gourmet y ceviches con sabor latinoamericano.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2425,-74.2135] },
-  { id:15, orden:999, bg:'pt7', cat:'comida', name:'Guasimo Restaurante', barrio:'Centro Histórico', tags:['Caribe','Mariscos','Chef'], rating:4.7, horario:'Lun–Dom · 12pm–10pm', precio:'$$ Promedio', desc:'Cocina caribeña-colombiana con mariscos frescos.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2420,-74.2130] },
-  { id:16, orden:999, bg:'pt8', cat:'comida', name:'Ouzo', barrio:'Parque de los Novios', tags:['Mediterráneo','Terraza','Elegante'], rating:4.5, horario:'Lun–Dom · 12pm–10pm', precio:'$$ Promedio', desc:'Cocina mediterránea con terraza frente al parque.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2430,-74.2125] },
-  { id:17, orden:999, bg:'pt1', cat:'comida', name:'Marrakech Restaurante', barrio:'Centro Histórico', tags:['Marroquí','Internacional','Exótico'], rating:4.4, horario:'Lun–Dom · 12pm–10pm', precio:'$$ Promedio', desc:'Cocina marroquí e internacional.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2425,-74.2140] },
-  { id:18, orden:999, bg:'pt2', cat:'comida', name:'Porthos Steakhouse & Pub', barrio:'Centro Histórico', tags:['Parrilla','Steak','Pub'], rating:4.5, horario:'Lun–Dom · 12pm–10pm', precio:'$$ Promedio', desc:'Parrilla y cortes de carne con ambiente pub.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2428,-74.2132] },
-  { id:19, orden:999, bg:'pt3', cat:'comida', name:'Mompox Café & Bistró', barrio:'Centro Histórico', tags:['Colombiano','Contemporáneo','Bistró'], rating:4.4, horario:'Lun–Dom · 12pm–10pm', precio:'$$ Promedio', desc:'Bistró con cocina colombiana contemporánea.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2423,-74.2138] },
-  { id:20, orden:999, bg:'pt4', cat:'comida', name:'Ikaro Cafe', barrio:'Centro Histórico', tags:['Vegetariano','Vegano','Saludable'], rating:4.5, horario:'Lun–Dom · 12pm–10pm', precio:'$$ Promedio', desc:'Café-restaurante vegetariano/vegano con camas para relax.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2425,-74.2145] },
-  { id:21, orden:999, bg:'pt5', cat:'comida', name:'Donde Chucho Gourmet', barrio:'Centro Histórico', tags:['Alta cocina','Local','Gourmet'], rating:4.6, horario:'Lun–Dom · 12pm–10pm', precio:'$$ Promedio', desc:'Alta cocina colombiana con ingredientes locales.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2420,-74.2128] },
-  { id:22, orden:999, bg:'pt6', cat:'comida', name:'Lamart Restaurante', barrio:'Bello Horizonte', tags:['Mariscos','Caribe','Frente al mar'], rating:4.5, horario:'Lun–Dom · 12pm–10pm', precio:'$$ Promedio', desc:'Cocina caribeña de mariscos frente al mar.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2380,-74.2100] },
-  { id:23, orden:999, bg:'pt7', cat:'comida', name:'Casa Magdalena', barrio:'Centro Histórico', tags:['Cocina fusión','Casa colonial','Moderno'], rating:4.6, horario:'Lun–Dom · 12pm–10pm', precio:'$$ Promedio', desc:'Cocina colombiana moderna en casa colonial.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2432,-74.2136] },
-
-  // ═══ ARTE ═══
-  { id:24, orden:999, bg:'pt8', cat:'arte', name:'Museo del Oro Tairona', barrio:'Parque Bolívar', tags:['Oro','Tairona','Precolombino'], rating:4.5, horario:'Mar–Dom · 9am–5pm', precio:'$ Económico', desc:'Orfebrería precolombina Tayrona, entrada gratis.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2423,-74.2115] },
-  { id:25, orden:999, bg:'pt1', cat:'arte', name:'Quinta de San Pedro Alejandrino', barrio:'Mamatoco', tags:['Bolívar','Historia','Jardín'], rating:4.6, horario:'Mar–Dom · 9am–5pm', precio:'$ Económico', desc:'Hacienda donde murió Simón Bolívar en 1830.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2281,-74.1792] },
-  { id:26, orden:999, bg:'pt2', cat:'arte', name:'Catedral de Santa Marta', barrio:'Centro Histórico', tags:['Catedral','Colonial','Historia'], rating:4.4, horario:'Lun–Dom · 9am–5pm', precio:'$ Económico', desc:'La catedral más antigua de Colombia (fundada 1525).', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2435,-74.2120] },
-  { id:27, orden:999, bg:'pt3', cat:'arte', name:'Parque Simón Bolívar', barrio:'Centro Histórico', tags:['Plaza','Cultura','Centro'], rating:4.3, horario:'Abierto siempre', precio:'Gratis', desc:'Plaza principal con ambiente cultural.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2425,-74.2118] },
-  { id:28, orden:999, bg:'pt4', cat:'arte', name:'Museo Bolivariano de Arte Contemporáneo', barrio:'Mamatoco', tags:['Arte','Contemporáneo','Bolívar'], rating:4.3, horario:'Mar–Dom · 9am–5pm', precio:'$ Económico', desc:'Arte contemporáneo en la hacienda de Bolívar.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2280,-74.1792] },
-  { id:29, orden:999, bg:'pt5', cat:'arte', name:'Paseo El Camellón', barrio:'Centro', tags:['Malecón','Mar','Atardecer'], rating:4.6, horario:'Abierto siempre', precio:'Gratis', desc:'Malecón costero con vista al mar y atardeceres.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2450,-74.2100] },
-  { id:30, orden:999, bg:'pt6', cat:'arte', name:'Acuario Mundo Marino', barrio:'El Rodadero', tags:['Acuario','Delfines','Marino'], rating:4.2, horario:'Lun–Dom · 9am–5pm', precio:'$$ Promedio', desc:'Acuario con delfines, tiburones y fauna marina.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2080,-74.2230] },
-
-  // ═══ PLAN ═══
-  { id:31, orden:999, bg:'pt7', cat:'plan', name:'Parque Tayrona', barrio:'Vía a Riohacha', tags:['Playa','Naturaleza','Selva'], rating:4.8, horario:'Lun–Dom · 6am–5pm', precio:'$$ Promedio', desc:'Parque nacional con playas vírgenes y selva.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2670,-74.0500] },
-  { id:32, orden:999, bg:'pt8', cat:'plan', name:'Minca Pueblo Cafetero', barrio:'Sierra Nevada', tags:['Café','Cascadas','Montaña'], rating:4.6, horario:'Consultar', precio:'$$ Promedio', desc:'Pueblo cafetero con cascadas y birdwatching.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.1436,-74.1175] },
-  { id:33, orden:999, bg:'pt1', cat:'plan', name:'Taganga', barrio:'Norte de Santa Marta', tags:['Pueblo','Buceo','Bohemio'], rating:4.4, horario:'Consultar', precio:'$$ Promedio', desc:'Pueblo pesquero con bahía y ambiente bohemio.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2645,-74.1911] },
-  { id:34, orden:999, bg:'pt2', cat:'plan', name:'El Rodadero', barrio:'Sur de Santa Marta', tags:['Playa','Turístico','Zona hotelera'], rating:4.3, horario:'Consultar', precio:'$$ Promedio', desc:'Principal zona turística de playa.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2020,-74.2220] },
-  { id:35, orden:999, bg:'pt3', cat:'plan', name:'Playa Blanca', barrio:'Bahía de Santa Marta', tags:['Playa','Arena blanca','Lancha'], rating:4.5, horario:'Todos los días · 6am–5pm', precio:'$$ Promedio', desc:'Playa de arena blanca accesible en lancha.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2470,-74.1950] },
-  { id:36, orden:999, bg:'pt4', cat:'plan', name:'Bahía Concha', barrio:'Entre Taganga y Tayrona', tags:['Playa','Snorkel','Tranquila'], rating:4.6, horario:'Todos los días · 7am–5pm', precio:'$$ Promedio', desc:'Playa tranquila con aguas cristalinas.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2740,-74.1550] },
-  { id:37, orden:999, bg:'pt5', cat:'plan', name:'Playa Cristal', barrio:'Tayrona', tags:['Playa','Turquesa','Espectacular'], rating:4.7, horario:'Todos los días · 7am–5pm', precio:'$$ Promedio', desc:'Playa de aguas turquesas cristalinas.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2900,-74.0900] },
-  { id:38, orden:999, bg:'pt6', cat:'plan', name:'Ciudad Perdida', barrio:'Sierra Nevada', tags:['Trek','Arqueológico','Tayrona'], rating:4.8, horario:'Consultar', precio:'$$$ Exclusivo', desc:'Ciudad precolombina Tayrona, trek de 4-6 días.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.0400,-73.9200] },
-  { id:39, orden:999, bg:'pt7', cat:'plan', name:'Playa Grande', barrio:'Taganga', tags:['Playa','Restaurantes','Caminata'], rating:4.3, horario:'Todos los días · 6am–6pm', precio:'$$ Promedio', desc:'Playa accesible a pie desde Taganga.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2680,-74.1950] },
-  { id:40, orden:999, bg:'pt8', cat:'plan', name:'Mirador de Taganga', barrio:'Taganga', tags:['Mirador','Vista 360°','Atardecer'], rating:4.5, horario:'Abierto siempre', precio:'Gratis', desc:'Mirador con vista panorámica de la bahía.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2655,-74.1880] },
-
-  // ═══ NOCHE ═══
-  { id:41, orden:999, bg:'pt1', cat:'noche', name:'La Azotea Disco Bar', barrio:'Centro Histórico', tags:['Rooftop','Discoteca','Parque'], rating:4.4, horario:'Vie–Sáb · 9pm–3am', precio:'$$ Promedio', desc:'Discoteca rooftop con vista al Parque de los Novios.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2425,-74.2130] },
-  { id:42, orden:999, bg:'pt2', cat:'noche', name:'Miko Bar Social', barrio:'Marina Internacional', tags:['Cócteles','Vista bahía','Sunset'], rating:4.5, horario:'Mar–Dom · 5pm–1am', precio:'$$$ Exclusivo', desc:'Cocktail bar con vista panorámica a la bahía.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2460,-74.2090] },
-  { id:43, orden:999, bg:'pt3', cat:'noche', name:'Barbas Disco Bar', barrio:'Centro Histórico', tags:['Discoteca','Moderna','Fiesta'], rating:4.2, horario:'Vie–Sáb · 9pm–3am', precio:'$$ Promedio', desc:'Discoteca con música moderna.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2420,-74.2140] },
-  { id:44, orden:999, bg:'pt4', cat:'noche', name:'Gairaca Lounge Discobar', barrio:'Centro Histórico', tags:['Lounge','Coctelería','Noche'], rating:4.3, horario:'Vie–Sáb · 9pm–3am', precio:'$$ Promedio', desc:'Lounge con música y coctelería.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2425,-74.2128] },
-  { id:45, orden:999, bg:'pt5', cat:'noche', name:'Cannario Rooftop', barrio:'Centro Histórico', tags:['Terraza','Vistas','Cócteles'], rating:4.4, horario:'Mar–Dom · 5pm–12am', precio:'$$$ Exclusivo', desc:'Terraza rooftop con vistas de la ciudad.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2415,-74.2150] },
-  { id:46, orden:999, bg:'pt6', cat:'noche', name:'7pk2 Disco Bar', barrio:'Centro Histórico', tags:['Discoteca','Rumba','Variado'], rating:4.2, horario:'Vie–Sáb · 9pm–3am', precio:'$$ Promedio', desc:'Discoteca con buena rumba y música variada.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2428,-74.2130] },
-  { id:47, orden:999, bg:'pt7', cat:'noche', name:'Contento Rooftop', barrio:'Centro Histórico', tags:['Rooftop','Coctelería','Sunset'], rating:4.5, horario:'Mar–Dom · 5pm–12am', precio:'$$$ Exclusivo', desc:'Rooftop con sunset y coctelería de autor.', img:'', telefono:'', instagram:'', menu:[''], coords:[11.2428,-74.2135] },
+  // === BARES ===
+  { id:1, orden:999, bg:'pt4', cat:'bares', name:'La Puerta del Sol', nit:'', barrio:'Centro Historico', tags:['Terraza', 'Vallenato', 'Tradicional'], rating:4.3, horario:'Lun-Dom 4pm-2am', precio:'$ Economico', desc:'Terraza en el centro con vallenato en vivo y ambiente costeno. Punto de encuentro de locales y viajeros.', img:'', telefono:'+57 605 456 7890', instagram:'', menu:['Cerveza', 'Ron', 'Aguardiente', 'Gaseosa'], coords:[11.241, -74.21] },
+  { id:2, orden:999, bg:'pt5', cat:'bares', name:'Barlovento', nit:'', barrio:'El Rodadero', tags:['Rooftop', 'Vistas', 'Elegante'], rating:4.5, horario:'Mar-Dom 5pm-1am', precio:'$$$ Exclusivo', desc:'Rooftop bar con vista panoramica del Rodadero y el mar. Cocteles premium, musica lounge y atardeceres espectaculares.', img:'', telefono:'+57 605 567 8901', instagram:'barloventosm', menu:['Margarita', 'Pina Colada', 'Ceviche', 'Tiradito'], coords:[11.208, -74.218] },
+  { id:3, orden:999, bg:'pt6', cat:'bares', name:'El Malecon Bar', nit:'', barrio:'El Rodadero', tags:['Malecon', 'Playa', 'Familiar'], rating:4.3, horario:'Lun-Dom 10am-11pm', precio:'$ Economico', desc:'Bar en el malecon del Rodadero con vista al mar. Cerveza fria, musica variada y el mejor ambiente para ver el atardecer.', img:'', telefono:'+57 605 678 9012', instagram:'', menu:['Cerveza', 'Limonada', 'Ron', 'Coctel'], coords:[11.209, -74.219] },
+  { id:4, orden:999, bg:'pt1', cat:'bares', name:'Donde Chucho', nit:'', barrio:'Centro Historico', tags:['Tradicional', 'Caribe', 'Cerveza'], rating:4.5, horario:'Lun-Dom 5pm-1am', precio:'$ Economico', desc:'Bar tradicional en el centro historico con musica caribena en vivo. Cerveza bien fria, ron y el mejor ambiente costeno de Santa Marta.', img:'', telefono:'+57 605 123 4567', instagram:'dondechuchosm', menu:['Cerveza Aguila', 'Ron', 'Cubalibre', 'Mixto'], coords:[11.24, -74.21] },
+  { id:5, orden:999, bg:'pt2', cat:'bares', name:'Lulo Bar', nit:'', barrio:'El Rodadero', tags:['Cocteles', 'Playa', 'Tropical'], rating:4.6, horario:'Lun-Dom 4pm-12am', precio:'$$ Promedio', desc:'Bar frente al mar en El Rodadero con cocteles tropicales. Musica reggae, hamacas en la terraza y atardeceres inolvidables.', img:'', telefono:'+57 605 234 5678', instagram:'lulobarsm', menu:['Coctel de lulo', 'Mojito', 'Ceviche', 'Empanadas'], coords:[11.21, -74.22] },
+  { id:6, orden:999, bg:'pt3', cat:'bares', name:'La Casa del Farol', nit:'', barrio:'Centro Historico', tags:['Colonial', 'Bohemio', 'Cultural'], rating:4.4, horario:'Mar-Dom 5pm-11pm', precio:'$$ Promedio', desc:'Bar en una casa colonial del centro con patio interior. Exposiciones de arte, musica en vivo y cocteles artesanales.', img:'', telefono:'+57 605 345 6789', instagram:'lacasadelfarol', menu:['Vino', 'Coctel', 'Cerveza artesanal', 'Tabla de quesos'], coords:[11.242, -74.211] },
+  // === CAFES ===
+  { id:7, orden:999, bg:'pt2', cat:'cafe', name:'Bona Vida Cafe', nit:'', barrio:'El Rodadero', tags:['Brunch', 'Acogedor', 'Saludable'], rating:4.6, horario:'Lun-Dom 7am-6pm', precio:'$$ Promedio', desc:'Cafe con opcion saludable en El Rodadero. Acai bowls, smoothies y cafe de especialidad. El favorito despues de la playa.', img:'', telefono:'+57 605 012 3456', instagram:'bonavidacafe', menu:['Acai Bowl', 'Smoothie', 'Cafe', 'Sandwich'], coords:[11.211, -74.221] },
+  { id:8, orden:999, bg:'pt3', cat:'cafe', name:'Minca Cafe', nit:'', barrio:'Minca', tags:['Minca', 'Cafe', 'Naturaleza'], rating:4.8, horario:'Lun-Dom 7am-5pm', precio:'$ Economico', desc:'Cafe en Minca con vista a la Sierra Nevada. Granos de fincas locales tostados artesanalmente. El mejor cafe de montana de la region.', img:'', telefono:'+57 605 123 4567', instagram:'mincacafe', menu:['Cafe campesino', 'Tinto', 'Panela', 'Arepa'], coords:[11.14, -74.12] },
+  { id:9, orden:999, bg:'pt1', cat:'cafe', name:'Cafe San Nicolas', nit:'', barrio:'Centro Historico', tags:['Historico', 'Plaza', 'Tradicional'], rating:4.5, horario:'Lun-Dom 7am-8pm', precio:'$ Economico', desc:'Cafe tradicional en la plaza de San Nicolas desde 1920. Mesas en la acera, tinto y conversacion. Esencia samaria en cada taza.', img:'', telefono:'+57 605 901 2345', instagram:'', menu:['Cafe', 'Te', 'Pan', 'Jugo'], coords:[11.24, -74.21] },
+  { id:10, orden:999, bg:'pt7', cat:'cafe', name:'Cafe Condesa', nit:'', barrio:'Centro Historico', tags:['Colonial', 'Patio', 'Tradicional'], rating:4.7, horario:'Lun-Dom 7am-9pm', precio:'$ Economico', desc:'Cafe en una casa colonial del centro con patio de buganvilias. Cafe de la Sierra Nevada, pan de bono y desayunos tipicos costenos.', img:'', telefono:'+57 605 789 0123', instagram:'cafecondesasm', menu:['Cafe con leche', 'Tinto', 'Pan de bono', 'Arepa'], coords:[11.242, -74.212] },
+  { id:11, orden:999, bg:'pt8', cat:'cafe', name:'Cafe de la Sierra', nit:'', barrio:'Centro Historico', tags:['Especialidad', 'Origen', 'Sierra Nevada'], rating:4.6, horario:'Lun-Dom 7am-7pm', precio:'$$ Promedio', desc:'Cafe de especialidad con granos de la Sierra Nevada de Santa Marta. Metodos de filtro y granos de fincas indigenas.', img:'', telefono:'+57 605 890 1234', instagram:'cafedelasierra', menu:['Pour Over', 'Capuchino', 'Te', 'Brownie'], coords:[11.239, -74.209] },
+  // === COMIDA ===
+  { id:12, orden:999, bg:'pt1', cat:'comida', name:'Mercado de Mariscos', nit:'', barrio:'Centro', tags:['Mercado', 'Fresco', 'Economico'], rating:4.5, horario:'Lun-Dom 6am-3pm', precio:'$ Economico', desc:'Mercado de mariscos frescos donde escoges el pescado y te lo preparan al instante. La experiencia gastronomica mas autentica de Santa Marta.', img:'', telefono:'+57 605 789 0123', instagram:'', menu:['Pescado frito', 'Ceviche', 'Arroz con coco', 'Patacones'], coords:[11.238, -74.208] },
+  { id:13, orden:999, bg:'pt8', cat:'comida', name:'Casa del Mar', nit:'', barrio:'El Rodadero', tags:['Mariscos', 'Parrilla', 'Vista'], rating:4.6, horario:'Lun-Dom 11am-11pm', precio:'$$ Promedio', desc:'Restaurante de mariscos con terraza frente al mar en El Rodadero. Pescados frescos, langosta y camarones. El mejor almuerzo con vista.', img:'', telefono:'+57 605 678 9012', instagram:'casadelmarsm', menu:['Langosta', 'Camarones', 'Pescado', 'Arroz con coco'], coords:[11.21, -74.221] },
+  { id:14, orden:999, bg:'pt3', cat:'comida', name:'La Derrota', nit:'', barrio:'Centro Historico', tags:['Tradicional', 'Casero', 'Familiar'], rating:4.4, horario:'Lun-Dom 11am-8pm', precio:'$ Economico', desc:'Comida casera en el centro desde 1950. Almuerzos economicos, sopas y platos tradicionales samarios. El comedor de los locales.', img:'', telefono:'+57 605 901 2345', instagram:'', menu:['Menu del dia', 'Sopa', 'Seco', 'Jugo'], coords:[11.239, -74.209] },
+  { id:15, orden:999, bg:'pt2', cat:'comida', name:'Burukuka', nit:'', barrio:'Bello Horizonte', tags:['Internacional', 'Rooftop', 'Exclusivo'], rating:4.8, horario:'Mar-Dom 6pm-11pm', precio:'$$$ Alta cocina', desc:'Restaurante en la cima de Bello Horizonte con vista al mar Caribe. Cocina internacional de autor y atardeceres de ensueno.', img:'', telefono:'+57 605 890 1234', instagram:'burukukasm', menu:['Menu degustacion', 'Langosta', 'Cordero', 'Postre'], coords:[11.19, -74.2] },
+  { id:16, orden:999, bg:'pt5', cat:'comida', name:'Donde Chucho Rest', nit:'', barrio:'Centro Historico', tags:['Caribena', 'Mariscos', 'Tradicional'], rating:4.6, horario:'Lun-Dom 11am-10pm', precio:'$$ Promedio', desc:'Restaurante de comida caribena con pescados frescos del dia. Ceviche, arroz con coco y pescado frito. Sabor costeno autentico.', img:'', telefono:'+57 605 345 6789', instagram:'dondechuchorest', menu:['Ceviche', 'Pescado frito', 'Arroz con coco', 'Patacones'], coords:[11.241, -74.211] },
+  { id:17, orden:999, bg:'pt4', cat:'comida', name:'Ouzo', nit:'', barrio:'El Rodadero', tags:['Griego', 'Mariscos', 'Elegante'], rating:4.8, horario:'Mar-Dom 12pm-3pm 7pm-11pm', precio:'$$$ Exclusivo', desc:'Restaurante griego frente al mar con mariscos frescos. Pulpo a la parrilla, musaka y vinos del mediterraneo. Atardecer espectacular.', img:'', telefono:'+57 605 234 5678', instagram:'ouzosm', menu:['Pulpo a la parrilla', 'Musaka', 'Ensalada griega', 'Baklava'], coords:[11.21, -74.22] },
+  { id:18, orden:999, bg:'pt7', cat:'comida', name:'La Cumbia', nit:'', barrio:'Centro Historico', tags:['Tipico', 'Casero', 'Costeno'], rating:4.5, horario:'Lun-Dom 11am-9pm', precio:'$ Economico', desc:'Comida tipica costena en el centro historico. Sancocho de pescado, arroz de lisa y carimanolas. Sabor tradicional samario.', img:'', telefono:'+57 605 567 8901', instagram:'lacumbiasm', menu:['Sancocho pescado', 'Arroz lisa', 'Carimanolas', 'Jugo'], coords:[11.24, -74.21] },
+  { id:19, orden:999, bg:'pt6', cat:'comida', name:'Lulo Restaurante', nit:'', barrio:'El Rodadero', tags:['Fusion', 'Colombiana', 'Creativo'], rating:4.7, horario:'Mar-Dom 12pm-10pm', precio:'$$$ Exclusivo', desc:'Cocina fusion caribena con ingredientes locales. Platos creativos con lulo, coco y pescados de la region. Experiencia gastronomica.', img:'', telefono:'+57 605 456 7890', instagram:'lulorestaurante', menu:['Ceviche de lulo', 'Langosta', 'Risotto de coco', 'Postre de maracuya'], coords:[11.209, -74.219] },
+  // === ARTE ===
+  { id:20, orden:999, bg:'pt6', cat:'arte', name:'Museo Naval del Caribe', nit:'', barrio:'Centro Historico', tags:['Naval', 'Historia', 'Caribe'], rating:4.5, horario:'Mar-Sab 9am-5pm', precio:'$ Economico', desc:'Museo dedicado a la historia naval del Caribe colombiano. Barcos, mapas antiguos y la historia de la batalla de Santa Marta.', img:'', telefono:'+57 605 422 3456', instagram:'', menu:[''], coords:[11.24, -74.21] },
+  { id:21, orden:999, bg:'pt7', cat:'arte', name:'Quinta de San Pedro', nit:'', barrio:'Mamatoco', tags:['Historico', 'Bolivar', 'Colonial'], rating:4.8, horario:'Lun-Dom 9am-5pm', precio:'$ Economico', desc:'Hacienda colonial donde murio Simon Bolivar en 1830. Museo, jardines botanicos y capilla. Patrimonio historico de Colombia.', img:'', telefono:'+57 605 433 1111', instagram:'quintasanpedro', menu:[''], coords:[11.23, -74.19] },
+  { id:22, orden:999, bg:'pt4', cat:'arte', name:'Museo del Oro Tairona', nit:'', barrio:'Centro Historico', tags:['Oro', 'Tairona', 'Precolombino'], rating:4.7, horario:'Mar-Sab 9am-5pm Dom 10am-4pm', precio:'$ Economico', desc:'Museo con piezas de oro de la cultura Tairona de la Sierra Nevada. Figuras, collares y mascaras de oro de gran valor artistico.', img:'', telefono:'+57 605 423 3333', instagram:'museodeorosm', menu:[''], coords:[11.242, -74.211] },
+  { id:23, orden:999, bg:'pt5', cat:'arte', name:'Casa de la Cultura', nit:'', barrio:'Centro Historico', tags:['Cultural', 'Exposiciones', 'Talleres'], rating:4.5, horario:'Lun-Vie 8am-6pm', precio:'Gratis', desc:'Centro cultural con exposiciones de artistas samarios. Talleres de pintura, musica y danza. El epicentro cultural de la ciudad.', img:'', telefono:'+57 605 421 2345', instagram:'casaculturasm', menu:[''], coords:[11.241, -74.212] },
+  // === PLAN ===
+  { id:24, orden:999, bg:'pt3', cat:'plan', name:'Minca', nit:'', barrio:'Sierra Nevada', tags:['Montana', 'Cafe', 'Naturaleza'], rating:4.7, horario:'Siempre abierto', precio:'$ Economico', desc:'Pueblo de montana en la Sierra Nevada. Fincas de cafe, cascadas, birdwatching y la mejor vista de Santa Marta desde las alturas.', img:'', telefono:'', instagram:'minca', menu:[''], coords:[11.14, -74.12] },
+  { id:25, orden:999, bg:'pt4', cat:'plan', name:'Rodadero', nit:'', barrio:'El Rodadero', tags:['Playa', 'Turismo', 'Familiar'], rating:4.5, horario:'Siempre abierto', precio:'Gratis', desc:'La playa mas popular de Santa Marta. Arena dorada, mar tranquilo, restaurantes y deportes acuaticos. El plan playero por excelencia.', img:'', telefono:'', instagram:'elrodadero', menu:[''], coords:[11.21, -74.22] },
+  { id:26, orden:999, bg:'pt5', cat:'plan', name:'Taganga', nit:'', barrio:'Taganga', tags:['Pueblo', 'Playa', 'Buceo'], rating:4.5, horario:'Siempre abierto', precio:'$ Economico', desc:'Pueblo de pescadores con playas tranquilas y buceo economico. Ambiente bohemio, mochileros y el mejor snorkel de la region.', img:'', telefono:'', instagram:'taganga', menu:[''], coords:[11.27, -74.19] },
+  { id:27, orden:999, bg:'pt8', cat:'plan', name:'Parque Nacional Tayrona', nit:'', barrio:'Via a Riohacha', tags:['Playa', 'Naturaleza', 'Senderismo'], rating:4.9, horario:'Lun-Dom 7am-5pm', precio:'$$ Promedio', desc:'Uno de los parques mas bellos del mundo. Playas de arena blanca, selva tropical y ruinas arqueologicas Taironas. Imperdible.', img:'', telefono:'+57 605 432 5555', instagram:'parquetayrona', menu:[''], coords:[11.32, -74.05] },
+  { id:28, orden:999, bg:'pt1', cat:'plan', name:'Ciudad Perdida Trek', nit:'', barrio:'Sierra Nevada', tags:['Trekking', 'Arqueologia', 'Aventura'], rating:4.9, horario:'Todo el ano', precio:'$$$ Exclusivo', desc:'Caminata de 4-5 dias a la Ciudad Perdida, la ciudad Tayrona mas importante. 1200 escalones de piedra. Experiencia transformadora.', img:'', telefono:'+57 605 123 4567', instagram:'ciudadperdidatour', menu:[''], coords:[11.05, -73.92] },
+  { id:29, orden:999, bg:'pt2', cat:'plan', name:'Playa Blanca', nit:'', barrio:'Via a Barranquilla', tags:['Playa', 'Mar', 'Relax'], rating:4.6, horario:'Lun-Dom 6am-5pm', precio:'$ Economico', desc:'Playa de arena blanca y aguas cristalinas a 20 minutos en lancha. Restaurantes de pescado, hamacas y el mar Caribe en todo su esplendor.', img:'', telefono:'', instagram:'playablancasm', menu:[''], coords:[11.26, -74.19] },
+  // === NOCHE ===
+  { id:30, orden:999, bg:'pt1', cat:'noche', name:'Mar y Rumba', nit:'', barrio:'El Rodadero', tags:['Discoteca', 'Reggaeton', 'Moderno'], rating:4.4, horario:'Vie-Sab 9pm-4am', precio:'$$ Promedio', desc:'Discoteca moderna con musica urbana y electronica. Luces led, sonido potente y el mejor after de El Rodadero.', img:'', telefono:'+57 605 567 8901', instagram:'maryrumbasm', menu:['Cerveza', 'Whisky', 'Ron', 'Coctel'], coords:[11.21, -74.22] },
+  { id:31, orden:999, bg:'pt2', cat:'noche', name:'Bar Bahia', nit:'', barrio:'Centro Historico', tags:['Bahia', 'Terraza', 'Vista'], rating:4.3, horario:'Mar-Dom 5pm-12am', precio:'$$ Promedio', desc:'Terraza con vista a la bahia de Santa Marta. Cocteles, musica en vivo y el puerto iluminado de noche.', img:'', telefono:'+57 605 678 9012', instagram:'barbahiasm', menu:['Coctel', 'Cerveza', 'Vino', 'Tabla'], coords:[11.24, -74.209] },
+  { id:32, orden:999, bg:'pt3', cat:'noche', name:'La Iguana', nit:'', barrio:'Centro Historico', tags:['Rock', 'Alternativo', 'Local'], rating:4.3, horario:'Jue-Sab 7pm-2am', precio:'$ Economico', desc:'Bar rockero alternativo con bandas locales en vivo. Cerveza artesanal, ambiente bohemio y el refugio de los rockeros samarios.', img:'', telefono:'+57 605 789 0123', instagram:'laiguanasm', menu:['Cerveza artesanal', 'Whisky', 'Hamburguesa', 'Papas'], coords:[11.239, -74.208] },
+  { id:33, orden:999, bg:'pt6', cat:'noche', name:'La Casa de la Cumbia', nit:'', barrio:'Centro Historico', tags:['Cumbia', 'Baile', 'Tradicional'], rating:4.6, horario:'Vie-Sab 7pm-2am', precio:'$ Economico', desc:'Salon de baile con cumbia y porro en vivo. Pista de baile, clases de cumbia y el mejor ambiente costeno.', img:'', telefono:'+57 605 234 5678', instagram:'lacumbiasm', menu:['Cerveza', 'Ron', 'Aguardiente', 'Agua'], coords:[11.242, -74.21] },
+  { id:34, orden:999, bg:'pt7', cat:'noche', name:'Salsa Beach', nit:'', barrio:'El Rodadero', tags:['Salsa', 'Playa', 'Fiesta'], rating:4.5, horario:'Vie-Sab 8pm-3am', precio:'$$ Promedio', desc:'Discoteca en la playa con salsa y reggaeton. Pista al aire libre, brisa del mar y ambiente festivo.', img:'', telefono:'+57 605 345 6789', instagram:'salsabeachsm', menu:['Cerveza', 'Ron', 'Coctel', 'Agua'], coords:[11.211, -74.221] },
+  { id:35, orden:999, bg:'pt8', cat:'noche', name:'Bazurto Social Club', nit:'', barrio:'Centro Historico', tags:['Champeta', 'Caribe', 'Popular'], rating:4.4, horario:'Jue-Sab 8pm-2am', precio:'$ Economico', desc:'Bar con champeta y musica caribena. El ritmo mas bailado de la Costa. Ambiente popular y lleno de energia.', img:'', telefono:'+57 605 456 7890', instagram:'bazurtosm', menu:['Cerveza', 'Ron', 'Aguardiente', 'Gaseosa'], coords:[11.241, -74.211] },
 ];
 
 // ══════════════════════════════════════
 // EVENTOS
 // ══════════════════════════════════════
 const eventList = [
-  { date:'2026-06-08', endDate:'2026-06-08', cat:'comida', icon:'🍳', name:'Festival Gastronómico', place:'Centro Histórico', price:'Entrada libre', short:'8 de junio' },
-  { date:'2026-06-29', endDate:'2026-06-29', cat:'cultural', icon:'🎉', name:'San Pedro y San Pablo', place:'Calles del Centro', price:'Entrada libre', short:'29 de junio' },
-  { date:'2026-07-16', endDate:'2026-07-16', cat:'cultural', icon:'🎉', name:'Fiesta de la Virgen del Carmen', place:'El Rodadero', price:'Entrada libre', short:'16 de julio' },
-  { date:'2026-07-20', endDate:'2026-07-20', cat:'cultural', icon:'🇨🇴', name:'Grito de Independencia', place:'Parque Bolívar', price:'Entrada libre', short:'20 de julio' },
-  { date:'2026-08-01', endDate:'2026-08-03', cat:'arte', icon:'🎸', name:'Festival de la Cumbia', place:'El Rodadero', price:'Variable', short:'1–3 de agosto' },
-  { date:'2026-08-07', endDate:'2026-08-07', cat:'cultural', icon:'🎖', name:'Batalla de Boyacá', place:'Centro Histórico', price:'Entrada libre', short:'7 de agosto' },
-  { date:'2026-09-15', endDate:'2026-09-18', cat:'cultural', icon:'💃', name:'Festival del Mar', place:'El Rodadero y Centro', price:'Variable', short:'15–18 de septiembre' },
-  { date:'2026-10-12', endDate:'2026-10-12', cat:'cultural', icon:'🌎', name:'Día de la Raza', place:'Centro Histórico', price:'Entrada libre', short:'12 de octubre' },
-  { date:'2026-10-31', endDate:'2026-11-01', cat:'noche', icon:'🎃', name:'Halloween en el Centro', place:'Calle 19', price:'Entrada libre', short:'31 oct – 1 nov' },
-  { date:'2026-11-02', endDate:'2026-11-02', cat:'cultural', icon:'🕯', name:'Día de los Muertos', place:'Cementerio San Miguel', price:'Entrada libre', short:'2 de noviembre' },
-  { date:'2026-11-11', endDate:'2026-11-11', cat:'cultural', icon:'👑', name:'Independencia de Cartagena', place:'Plazas del Centro', price:'Entrada libre', short:'11 de noviembre' },
-  { date:'2026-12-07', endDate:'2026-12-08', cat:'cultural', icon:'🕯', name:'Día de las Velitas', place:'Toda la ciudad', price:'Entrada libre', short:'7–8 de diciembre' },
-  { date:'2026-12-16', endDate:'2026-12-24', cat:'cultural', icon:'⭐', name:'Novenas de Aguinaldos', place:'Calles e iglesias', price:'Entrada libre', short:'16–24 de diciembre' },
-  { date:'2026-12-31', endDate:'2026-12-31', cat:'noche', icon:'🎆', name:'Año Nuevo en El Rodadero', place:'El Rodadero', price:'Entrada libre', short:'31 de diciembre' },
+  { date:'2026-07-05', endDate:'2026-07-07', cat:'arte', icon:'🎵', name:'Festival de la Cumbia', nit:'', place:'Centro Historico', price:'Entrada libre', short:'5-7 de julio' },
+  { date:'2026-08-15', endDate:'2026-08-17', cat:'comida', icon:'🍴', name:'Festival del Pescado Frito', nit:'', place:'El Rodadero', price:'$15.000', short:'15-17 de agosto' },
+  { date:'2026-09-20', endDate:'2026-09-22', cat:'arte', icon:'🎪', name:'Feria Artesanal de Taganga', nit:'', place:'Taganga', price:'Entrada libre', short:'20-22 de septiembre' },
+  { date:'2026-10-10', endDate:'2026-10-12', cat:'plan', icon:'🪣', name:'Dia del Pescador', nit:'', place:'Taganga', price:'Entrada libre', short:'10-12 de octubre' },
 ];
 
 function getUpcomingEvents() {
@@ -768,7 +736,7 @@ function renderBannerEvents() {
 // ══════════════════════════════════════
 // ESTADO
 // ══════════════════════════════════════
-let saved = JSON.parse(localStorage.getItem('santamarta_saved') || '[]');
+let saved = JSON.parse(localStorage.getItem('smt_saved') || '[]');
 let currentFilter = 'todos';
 let currentSearch = '';
 let currentModal = null;
@@ -876,7 +844,7 @@ function filterEvents() {
 function initMap() {
   if(mapInitialized) { leafMap.invalidateSize(); updateMapPins(); return; }
   mapInitialized = true;
-  leafMap = L.map('map', {zoomControl:true}).setView([11.2425,-74.2130],14);
+  leafMap = L.map('map', {zoomControl:true}).setView([11.2400,-74.2110],14);
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19}).addTo(leafMap);
   updateMapPins();
 }
@@ -888,8 +856,8 @@ function updateMapPins() {
   const toShow = mapFocusPlace !== null ? places.filter(p => p.id === mapFocusPlace) : places.filter(matchesFilter);
   toShow.forEach(p => {
     const icon = L.divIcon({
-      html:`<div style="background:#1C1508;border:2px solid #2A9D8F;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,0.5);"><svg viewBox="0 0 80 80" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">${getSVG(p.cat)}</svg></div>`,
-      className:'', iconSize:[36,36], iconAnchor:[18,18]
+      html:`<div style="background:#1C1508;border:2px solid #1ABC9C;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,0.5);"><svg viewBox="0 0 80 80" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">${getSVG(p.cat)}</svg></div>`,
+      className:'', nit:'', iconSize:[36,36], iconAnchor:[18,18]
     });
     const marker = L.marker(p.coords,{icon}).addTo(leafMap).bindPopup(`<div class="popup-name">${p.name}</div><div class="popup-barrio">📍 ${p.barrio}</div>`);
     mapMarkers.push(marker);
@@ -992,7 +960,7 @@ function toggleSave(e, id) {
     btn.style.transform = 'scale(1.4)';
     setTimeout(() => btn.style.transform = '', 250);
   }
-  localStorage.setItem('santamarta_saved', JSON.stringify(saved));
+  localStorage.setItem('smt_saved', JSON.stringify(saved));
 }
 
 function toggleSaveFromModal() {
@@ -1001,7 +969,7 @@ function toggleSaveFromModal() {
   const hb = document.getElementById('btn-modal-heart');
   if(saved.includes(id)) { saved = saved.filter(s=>s!==id); hb.innerHTML='<i class="fa-regular fa-heart"></i>'; }
   else { saved.push(id); hb.innerHTML='<i class="fa-solid fa-heart" style="color:#E24B4A"></i>'; }
-  localStorage.setItem('santamarta_saved', JSON.stringify(saved));
+  localStorage.setItem('smt_saved', JSON.stringify(saved));
   renderPlaces();
 }
 
@@ -1023,7 +991,7 @@ function sharePlace() {
   if(!currentModal) return;
   const p = currentModal;
   if(navigator.share) {
-    navigator.share({title:p.name, text:`Mira este parche en Santa Marta Local: ${p.name} — ${p.barrio}`, url:window.location.href});
+    navigator.share({title:p.name, text:`Mira este parche en Cartagena Local: ${p.name} — ${p.barrio}`, url:window.location.href});
   } else {
     navigator.clipboard.writeText(window.location.href).then(()=>alert('¡Enlace copiado!'));
   }
@@ -1039,3 +1007,5 @@ renderBannerEvents();
 </script>
 </body>
 </html>
+
+
